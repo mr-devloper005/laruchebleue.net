@@ -95,18 +95,18 @@ export const visualPresets = {
     shape: 'stickers, tabs, framed modules, playful dividers',
   },
   'visual-gallery': {
-    label: 'Visual Gallery',
-    mood: 'cinematic, image-led, immersive',
-    fontDirection: 'minimal sans with oversized display moments',
+    label: 'Neon Portfolio Studio',
+    mood: 'cinematic, dark, image-led, high contrast',
+    fontDirection: 'bold geometric sans with oversized display moments',
     colors: {
-      background: '#07101f',
-      foreground: '#f8fbff',
-      muted: '#a9b6c8',
-      primary: '#8df0c8',
-      accent: '#f2a0ff',
-      surface: '#101b2d',
+      background: '#070808',
+      foreground: '#ffffff',
+      muted: '#9aa4b3',
+      primary: '#00f5d4',
+      accent: '#00f5d4',
+      surface: '#000000',
     },
-    shape: 'dark cards, large media, glass overlays',
+    shape: 'black cards, teal accents, violet actions, large media',
   },
 } as const
 
