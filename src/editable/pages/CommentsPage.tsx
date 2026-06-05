@@ -101,7 +101,7 @@ export default function CommentsPage() {
               </p>
               <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Comments</h1>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-                Review comments saved in this browser from article pages.
+                Review notes saved in this browser from image and profile pages.
               </p>
             </div>
             <button type="button" className="rounded-full border border-[var(--editable-border)] px-4 py-2 text-sm font-black" onClick={refreshComments}>Refresh comments</button>
@@ -137,7 +137,7 @@ export default function CommentsPage() {
                   </div>
                   {item.articleSlug ? (
                     <Link href={`/article/${item.articleSlug}`} className="text-sm text-primary underline-offset-4 hover:underline">
-                      Open article
+                      Open profile note
                     </Link>
                   ) : null}
                 </div>
@@ -148,8 +148,8 @@ export default function CommentsPage() {
           </section>
         ) : (
           <section className="mt-8 rounded-2xl border border-dashed border-border bg-card/70 p-8 text-center">
-            <h2 className="text-xl font-semibold text-foreground">No comments yet</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Add a comment on any article page and it will appear here.</p>
+            <h2 className="text-xl font-semibold text-foreground">No profile notes yet</h2>
+            <p className="mt-2 text-sm text-muted-foreground">Add a note on any image or profile page and it will appear here.</p>
           </section>
         )}
 
