@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Atom, Eye, Lightbulb, Search, SlidersHorizontal, UserRound } from 'lucide-react'
+import { ArrowRight, Atom, Eye, Lightbulb, Search, SlidersHorizontal } from 'lucide-react'
 import type { SitePost } from '@/lib/site-connector'
 import type { HomeTimeSection } from '@/lib/task-data'
 import type { TaskKey } from '@/lib/site-config'
@@ -15,14 +15,6 @@ type HomeSectionProps = {
   timeSections: HomeTimeSection[]
 }
 
-function taskLabel(task: TaskKey) {
-  return SITE_CONFIG.tasks.find((item) => item.key === task)?.label || task
-}
-
-function fallbackHeroTitle(primaryTask: TaskKey) {
-  return pagesContent.home.hero.title.join(' ') || `Image Galleries for Professional Profiles`
-}
-
 function postLink(primaryTask: TaskKey, primaryRoute: string, post: SitePost) {
   return postHref(primaryTask, post, primaryRoute)
 }
@@ -36,7 +28,7 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
   )
 }
 
-export function EditableHomeHero({ primaryTask, primaryRoute, posts }: HomeSectionProps) {
+export function EditableHomeHero({ primaryRoute, posts }: HomeSectionProps) {
   const heroPost = posts[0]
   const heroImage = heroPost ? getEditablePostImage(heroPost) : editableFallbackImage
   return (
@@ -86,7 +78,7 @@ export function EditableStoryRail({ primaryTask, primaryRoute, posts }: HomeSect
   )
 }
 
-export function EditableMagazineSplit({ primaryTask, primaryRoute, posts }: HomeSectionProps) {
+export function EditableMagazineSplit({ posts }: HomeSectionProps) {
   const services = [
     [Atom, 'Image context', 'Each image post pairs strong visuals with clear profile-ready context.'],
     [Eye, 'Gallery view', 'Large media blocks make every portfolio easy to inspect and remember.'],
@@ -155,7 +147,7 @@ export function EditableTimeCollections({ primaryTask, primaryRoute, posts, time
 
       {false ? <section className="bg-[#070808] px-5 py-28 sm:px-8">
         <div className="mx-auto grid max-w-[1300px] gap-8 lg:grid-cols-2">
-          {compact.slice(0, 2).map((post, index) => (
+          {compact.slice(0, 2).map((post) => (
             <blockquote key={post.id || post.slug} className="relative rounded-lg bg-black px-10 py-20 text-center">
               <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-6 text-8xl font-black text-[var(--slot4-accent-fill)]">“</span>
               <p className="mx-auto max-w-xl text-2xl leading-10 text-white/78">{getEditableExcerpt(post, 190)}</p>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Bookmark, Building2, Camera, CheckCircle2, Download, ExternalLink, FileText, Globe2, Mail, MapPin, MessageCircle, Phone, Tag, UserRound } from 'lucide-react'
+import { ArrowLeft, Bookmark, Camera, CheckCircle2, Download, ExternalLink, FileText, Globe2, Mail, MapPin, MessageCircle, Phone, Tag } from 'lucide-react'
 import { buildPostMetadata, buildTaskMetadata } from '@/lib/seo'
 import { buildPostUrl, fetchArticleComments, fetchTaskPostBySlug, fetchTaskPosts } from '@/lib/task-data'
 import { getTaskConfig, SITE_CONFIG, type TaskKey } from '@/lib/site-config'
@@ -141,7 +141,6 @@ function ImageDetail({ post, related }: { post: SitePost; related: SitePost[] })
         <aside className="rounded-lg bg-black p-7 lg:sticky lg:top-32 lg:self-start">
           <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[var(--slot4-accent)]"><Camera className="h-4 w-4" /> Image gallery</div>
           <h1 className="mt-6 text-4xl font-black leading-[0.98] sm:text-5xl">{post.title}</h1>
-          <p className="mt-5 text-base leading-8 text-white/68">{getEditableExcerpt(post, 180)}</p>
           <BodyContent post={post} compact />
         </aside>
         <ImageMasonry images={images.length ? images : [getEditablePostImage(post)]} />
@@ -275,7 +274,6 @@ function DetailHeader({ post, label }: { post: SitePost; label: string }) {
     <>
       <p className="mt-9 text-xs font-black uppercase tracking-[0.22em] text-[var(--slot4-accent)]">{label}</p>
       <h1 className="mt-5 text-4xl font-black leading-[0.96] sm:text-5xl lg:text-7xl">{post.title}</h1>
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-white/68">{getEditableExcerpt(post, 190)}</p>
     </>
   )
 }
@@ -355,7 +353,7 @@ function BadgeLine({ label, value }: { label: string; value: string }) {
   return <div className="flex items-center justify-between gap-4 rounded-lg border border-white/15 bg-white/[0.035] px-4 py-3 text-sm"><span className="font-black uppercase tracking-[0.16em] text-white/60">{label}</span><span className="font-black">{value}</span></div>
 }
 
-function RelatedPanel({ task, post, related, compact = false }: { task: TaskKey; post: SitePost; related: SitePost[]; compact?: boolean }) {
+function RelatedPanel({ task, related, compact = false }: { task: TaskKey; post: SitePost; related: SitePost[]; compact?: boolean }) {
   const taskConfig = getTaskConfig(task)
   return (
     <aside className="min-w-0 space-y-5">
